@@ -16,7 +16,7 @@ fn main() {
         .map(|res| res.map(|e| e.path()))
         .collect::<Result<Vec<_>, io::Error>>().unwrap();
 
-    let mut processes:Vec<Child> = vec![];
+    let mut processes:Vec<Child> = vec![];  // child processes
     let mut child: Child;
     for job in &jobs {
         // creates new child process in paused state and adds it to the vec of processes
