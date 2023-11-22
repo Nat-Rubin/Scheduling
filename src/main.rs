@@ -10,7 +10,7 @@ fn continue_process(id: u32) {
     unsafe { libc::kill(id as pid_t, libc::SIGCONT); }
 }
 fn main() {
-    let interrupt = time::Duration::from_millis(1);
+    let quantum = time::Duration::from_millis(1);
 
     let jobs = fs::read_dir("jobs").unwrap()
         .map(|res| res.map(|e| e.path()))
@@ -30,7 +30,7 @@ fn main() {
         for child in &processes {
             continue_process(child.id());
             println!("Started process {}", child.id());
-            thread::sleep(interrupt);
+            thread::sleep(quantum);
             pause_process(child.id());
             println!("Stopped process {}", child.id());
         }
