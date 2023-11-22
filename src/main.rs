@@ -20,8 +20,7 @@ fn main() {
     let mut processes:Vec<Child> = vec![];
     let mut child: Child;
     for job in &jobs {
-        // creates a.txt new child process in a.txt paused state and adds it to the vec of processes
-        // TODO: open in new terminal
+        // creates new child process in paused state and adds it to the vec of processes
         let job_command = format!("./{}", job.to_string_lossy().to_string());
         println!("{}", job_command);
         child = Command::new("konsole").arg("--separate").arg("--hold").arg("-e").arg(job_command).spawn().expect("Failed");
