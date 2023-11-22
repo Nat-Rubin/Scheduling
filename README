@@ -1,2 +1,4 @@
 This is a program made to simulate scheduling and concurrency on an OS.
 It works by running the executables in the jobs folder and uses a Round Robin approach to switch between them.
+Written in Rust
+Runs on Arch Linux (or the konsole console)
