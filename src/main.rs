@@ -16,7 +16,6 @@ fn main() {
         .map(|res| res.map(|e| e.path()))
         .collect::<Result<Vec<_>, io::Error>>().unwrap();
 
-    //TODO: enable args
     let mut processes:Vec<Child> = vec![];
     let mut child: Child;
     for job in &jobs {
